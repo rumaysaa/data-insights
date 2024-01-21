@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Models</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+        integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+        async></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/styles/index.css">
+</head>
+
+<body><br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <div id="loader" style="align-items: center;" ;>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5"></div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 style="text-align: center; color: #04AA6D;margin: 20px;">Model Evaluation for {{model}}
+                </h1>
+            </div>
+            <div class="col-lg-3">
+                <a href="/">
+                    <button class="btn btn-outline-success">Change dataset</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 form-container form-popup"" id=" formcont">
+            <br>
+            <div class="row" data-masonry='{"percentPosition": true }'>
+                {% if acc != None%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Accuracy
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{acc}} %</p>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if sig_html != None %}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Graph
+                        </div>
+                        <div class="card-body">
+                            {{ sig_html | safe }}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {% if scattplot != None%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Graph
+                        </div>
+                        <div class="card-body">
+                            {{ scattplot | safe}}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {% if GD_plot != None%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Gradient Descent
+                        </div>
+                        <div class="card-body">
+                            {{GD_plot | safe}}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if roc != None %}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            ROC Curve
+                        </div>
+                        <div class="card-body">
+                            {{ roc | safe }}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Predict
+                        </div>
+                        <div class="card-body">
+                            <form name="predictForm" id="predictForm" method="post">
+                                <textarea id="modelname" name="modelname" hidden>{{model}}</textarea>
+                                <textarea id="y" name="y" hidden>{{y}}</textarea>
+                                <textarea id="LR" name="LR" hidden>{{lr}}</textarea>
+                                <textarea id="epoch" name="epoch" hidden>{{epoch}}</textarea>
+                                <textarea id="selectGD" name="selectGD" hidden>{{gd}}</textarea>
+                                <textarea id="batchsize" name="batchsize" hidden>{{batchsize}}</textarea>
+                                <textarea id="k" name="k" hidden>{{k}}</textarea>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        {%for col in cols1%}
+                                        <input type="number" style="margin: 5px;" class="form-control" name="{{col}}"
+                                            placeholder={{col}} step="any" required>
+                                        {%endfor%}
+                                    </div>
+                                    <div class="col-lg-6">
+                                        {%for col in cols2%}
+                                        <input type="number" style="margin: 5px;" class="form-control" name="{{col}}"
+                                            placeholder={{col}} step="any" required>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <button type="submit" class="btn btn-sm btn-primary">
+                                            Submit
+                                        </button>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-4"></div>
+                                </div>
+                        </div>
+                        </form>
+                        {%if pred != None%}
+                        <blockquote class="blockquote mb-0">
+                            <center> <b>Predicted Value: {{pred}}</b></center>
+                        </blockquote>
+                        {%endif%}
+                    </div>
+                </div>
+                {%if tables != None%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Classification report
+                        </div>
+                        <div class="card-body">
+                            {% for table in tables %}
+                            {{ table|safe }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if err != None %}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Error metrics
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Metric</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                {%for e in err%}
+                                {%for el in e%}
+                                <tr>
+                                    {%for s in el%}
+                                    <td>{{s}}</td>
+                                    {%endfor%}
+                                </tr>
+                                {%endfor%}
+                                {%endfor%}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+                {%if plotmet_html%}
+                <div class="col-lg-6">
+                    <div class="card marg">
+                        <div class="card-header font">
+                            Confusion matrix
+                        </div>
+                        <div class="card-body">
+                            {{ plotmet_html | safe }}
+                        </div>
+                    </div>
+                </div>
+                {%endif%}
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+    <script>
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("body").style.visibility = "hidden";
+                document.querySelector("#loader").style.visibility = "visible";
+            } else {
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("body").style.visibility = "visible";
+            }
+        };
+    </script>
+</body>
+
+</html>

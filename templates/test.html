@@ -1,0 +1,2579 @@
+
+<!DOCTYPE html>
+<html class="desktop mbr-site-loaded">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.3, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/images/logo5.png"
+    type="image/x-icon">
+  <meta name="description" content="AI Website Generator. Generate awesome websites with simple prompts. Type in any language. Export in a zip.">
+  <title>Mobirise AI Website Builder</title>
+  <link rel="stylesheet"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/dropdown/css/style.css">
+  <link rel="stylesheet"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap&display=swap">
+  </noscript>
+  <link rel="preload" as="style"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet"
+    href="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/mobirise/css/mbr-additional.css" type="text/css">
+  <script>
+    const APP_URL = location.protocol === 'file:'
+      ? 'http://localhost:8080'
+      : 'https://lab-mobirise-ai.ui-api.com';
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NC3ND8L4DC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-NC3ND8L4DC');
+  </script>
+  <!-- Google tag (gtag.js) -->
+
+  <!-- Google Tag Manager-->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PFK425');</script>
+  <!-- End Google Tag Manager --> 
+</head>
+
+<body>
+  <style>
+    body {
+      overflow: hidden;
+    }
+
+    #aiWizardAlert {
+      background-color: #0000005e;
+    }
+
+    #aiWizard .modal-dialog,
+    #feedbackModal .modal-dialog,
+    #aiWizardAlert .modal-dialog {
+      transition: 0.2s;
+
+    }
+
+    small {
+      font-size: 1rem;
+    }
+
+    .modal-header {
+      justify-content: start;
+      align-items: flex-start;
+      position: relative;
+    }
+    .modal-header span {
+      font-size: 0.7rem;
+      color: red;
+      margin-left:0.5rem;
+    }
+    .modal-header p{
+      position: absolute;
+      bottom: -10px;
+      font-size: 0.8rem;
+      color: #9b9b9b;
+    }
+    .modal-content {
+      border-radius: 16px !important;
+    }
+
+    .modal-body {
+      @media(max-width:767px) {
+        padding: 1rem;
+      }
+    }
+
+    .modal-footer {
+      @media(max-width:767px) {
+        padding: 1rem;
+      }
+    }
+
+    .modal-footer {
+      @media(min-width:768px) {
+        padding: 1rem;
+      }
+    }
+
+    .modal h1 {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
+
+    .modal .form-control {
+      border-radius: 10px !important;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      padding: 1rem;
+    }
+
+    .modal label {
+      font-size: 1.2rem;
+    }
+
+    .modal button {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      margin: 0;
+      border-radius: 10px !important;
+      padding: 1rem 1.5rem !important;
+    }
+
+    .modal button {
+      font-size: 1rem;
+      padding: 1rem !important;
+    }
+
+    .modal .mbr-section-btn {
+      margin: 0;
+    }
+
+    #downloadButton {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      width: 100%;
+    }
+
+    #downloadButton .d-flex {
+      justify-content: flex-end;
+    }
+
+    #generatedSite {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #downloadButton button {
+      margin: 0.5rem;
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.4);
+    }
+
+    section {
+      display: none;
+      animation: expand;
+      animation-duration: 5000ms;
+      filter: blur(20px)
+    }
+
+    @keyframes expand {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  
+
+  <script src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/embla/embla.min.js"></script>
+  <script src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/smoothscroll/smooth-scroll.js"></script>
+  <script data-src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/embla/script.js"></script>
+  <script data-src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/theme/js/script.js"></script>
+  <script src="https://1fdrtej1r.ui-api.com/labs/mobirise-ai/assets/startm5/formoid/formoid.min.js"></script>
+  <script>
+    const translates = (() => {
+      const locales = {
+        zh: {
+          "Generate Page": "生成页面",
+          "Generating Page...": "生成页面...",
+          "Creating pallete...": "创建调色板",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "详细描述网站的内容、提供的服务、幕后人员、优势和特长。您可以使用任何语言撰写。",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "北京免费送花,1-3小时送达, 鲜花网领军企业, 全程3重权益保障",
+          "Something went wrong": "出了问题",
+          "Try Again": "再试一次",
+          "Loading...": "正在加载...",
+          "Generate New": "再次生成",
+          "Download this page in zip": "下载本页压缩包",
+          "Your prompt is too short, add more details.": "您的提示太短，请添加更多细节。",
+          "Open temp url": "打开临时网址",
+          "Send message": "发送信息",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "要继续阅读，请留下评论。您喜欢这样的结果吗？帮助我们发展！",
+          "Thanks for filling out the form!": "感谢您填写表格！",
+          "Oops...! some problem!": "哎呀......！出问题了！",
+          "Your prompt is too long, shorten it.": "您的提示太长，请缩短。"
+        },
+        en: {
+          "Generate Page": "Generate Page",
+          "Generating Page...": "Generating Page...",
+          "Creating pallete...": "Creating pallete...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.",
+          "Something went wrong": "Something went wrong",
+          "Try Again": "Try Again",
+          "Loading...": "Loading...",
+          "Generate New": "Generate New",
+          "Download this page in zip": "Download this page in zip",
+          "Your prompt is too short, add more details.": "Your prompt is too short, add more details.",
+          "Open temp url": "Open temp url",
+          "Send message": "Send message",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!",
+          "Thanks for filling out the form!": "Thanks for filling out the form!",
+          "Oops...! some problem!": "Oops...! some problem!",
+          "Send message": "Send message",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!",
+          "Thanks for filling out the form!": "Thanks for filling out the form!",
+          "Oops...! some problem!": "Oops...! some problem!",
+          "Your prompt is too long, shorten it.": "Your prompt is too long, shorten it."
+        },
+        es: {
+          "Generate Page": "Generar página",
+          "Generating Page...": "Generar página...",
+          "Creating pallete...": "Creación de pal...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Describa detalladamente de qué tratará su sitio, qué ofrecerá, quién está detrás, sus ventajas y especialidades. Puede escribir en cualquier idioma.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "Alquiler de patinetes eléctricos en Barcelona desde 10€. Distintos modelos para adulto y niños.",
+          "Something went wrong": "Algo salió mal",
+          "Try Again": "Inténtalo de nuevo",
+          "Loading...": "Cargando...",
+          "Generate New": "Generar de nuevo",
+          "Download this page in zip": "Descargar esta página en zip",
+          "Your prompt is too short, add more details.": "Su mensaje es demasiado corto, añada más detalles.",
+          "Open temp url": "Abrir url temporal",
+          "Send message": "Enviar mensaje",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "Para continuar, deje su comentario. ¿Le ha gustado el resultado, qué se podría mejorar? ¡Ayúdenos a evolucionar!",
+          "Thanks for filling out the form!": "Gracias por rellenar el formulario.",
+          "Oops...! some problem!": "¡Uy...! ¡Algún problema!",
+          "Your prompt is too long, shorten it.": "Su mensaje es demasiado largo, acórtelo."
+        },
+        ar: {
+          "Generate Page": "إنشاء الصفحة",
+          "Generating Page...": "جارٍ إنشاء الصفحة...",
+          "Creating pallete...": "إنشاء لوحة...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "قم بوصف تفصيلي لما ستفعله في موقعك، وما الذي تقدمه، وما هي مميزاته، وميزاته، وميزاته الخاصة. يمكنك الكتابة بأي لغة.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "وكالات عقارية رائدة مقرها في أبوظبي. نحن نقدم خدمات عقارية بأعلى جودة في سوق الإمارات العربية المتحدة.",
+          "Something went wrong": "هناك خطأ ما",
+          "Try Again": "حاول ثانية",
+          "Loading...": "تحميل...",
+          "Generate New": "توليد مرة أخرى",
+          "Download this page in zip": "قم بتنزيل هذه الصفحة في ملف مضغوط",
+          "Your prompt is too short, add more details.": "مطالبتك قصيرة جدًا، قم بإضافة المزيد من التفاصيل.",
+          "Open temp url": "فتح عنوان URL المؤقت",
+          "Send message": "أرسل رسالة",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "للمتابعة يرجى ترك التعليق. هل أعجبتك النتيجة، ما الذي يمكن تحسينه؟ ساعدونا على التطور!",
+          "Thanks for filling out the form!": "شكرا لملء النموذج!",
+          "Oops...! some problem!": "أُووبس...! بعض المشاكل!",
+          "Your prompt is too long, shorten it.": "مطالبتك طويلة جدًا، قم بتقصيرها."
+        },
+        fr: {
+          "Generate Page": "Générer une page",
+          "Generating Page...": "Générer une page...",
+          "Creating pallete...": "Création de palettes...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Décrivez en détail le contenu de votre site, ce qu'il offrira, qui en est à l'origine, vos avantages et vos spécialités. Vous pouvez écrire dans n'importe quelle langue.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "L'une des boulangeries les plus réputées de Toulouse. Notre équipe est fière de proposer des croissants appétissants, des pains au levain uniques et d'utiliser les meilleurs ingrédients.",
+          "Something went wrong": "Quelque chose n'a pas fonctionné",
+          "Try Again": "Réessayer",
+          "Loading...": "Chargement...",
+          "Generate New": "Générer à nouveau",
+          "Download this page in zip": "Télécharger cette page en format zip",
+          "Your prompt is too short, add more details.": "Votre texte est trop court, ajoutez plus de détails.",
+          "Open temp url": "Ouvrir l'url temporaire",
+          "Send message": "Envoyer un message",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "Pour continuer, veuillez laisser un commentaire. Le résultat vous a plu, qu'est-ce qui pourrait être amélioré ? Aidez-nous à évoluer !",
+          "Thanks for filling out the form!": "Merci de remplir le formulaire !",
+          "Oops...! some problem!": "Oups... ! un problème !",
+          "Your prompt is too long, shorten it.": "Votre message est trop long, raccourcissez-le."
+        },
+        ru: {
+          "Generate Page": "Генерировать страницу",
+          "Generating Page...": "Создание страницы...",
+          "Creating pallete...": "Создание палитры...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Подробно опишите, о чем будет ваш сайт, что он будет предлагать, кто за ним стоит, ваши преимущества и особенности. Вы можете писать на любом языке.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "БородаНС - легендарный барбершоп в Новосибирске. Основные услуги - мужские стрижки, опасное бритье.",
+          "Something went wrong": "Что-то пошло не так",
+          "Try Again": "Попробовать еще раз",
+          "Loading...": " Загрузка...",
+          "Generate New": "Попробовать еще раз",
+          "Download this page in zip": "Загрузить эту страницу в формате zip",
+          "Your prompt is too short, add more details.": "Ваш запрос слишком короткий, добавьте больше деталей.",
+          "Open temp url": "Открыть временный сайт",
+          "Send message": "Отправить сообщение",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "Чтобы продолжить, пожалуйста, оставьте отзыв. Понравился ли вам результат, что можно улучшить? Помогите нам развиваться!",
+          "Thanks for filling out the form!": "Спасибо за заполнение формы!",
+          "Oops...! some problem!": "Упс...! Какая-то проблема!",
+          "Your prompt is too long, shorten it.": "Ваш запрос слишком длинный, сократите его."
+        },
+        pt: {
+          "Generate Page": "Gerar página",
+          "Generating Page...": "Geração de página...",
+          "Creating pallete...": "Criar uma palete...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Descreva em pormenor o que será o seu sítio, o que oferecerá, quem está por detrás dele, as suas vantagens e especialidades. Pode escrever em qualquer língua.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "A academia FitRio está em funcionamento no Rio de Janeiro desde 2003. Oferecemos um serviço completo e perfeito para atender a toda a família.",
+          "Something went wrong": "Algo correu mal",
+          "Try Again": "Tentar de novo",
+          "Loading...": "Carregando...",
+          "Generate New": "Gerar novamente",
+          "Download this page in zip": "Descarregar esta página em formato zip",
+          "Your prompt is too short, add more details.": "O seu texto é demasiado curto, acrescente mais pormenores.",
+          "Open temp url": "Abrir url temporário",
+          "Send message": "Enviar mensagem",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "Para continuar, deixe um comentário. Gostou do resultado, o que poderia ser melhorado? Ajude-nos a evoluir!",
+          "Thanks for filling out the form!": "Obrigado por preencher o formulário!",
+          "Oops...! some problem!": "Oops...! algum problema!",
+          "Your prompt is too long, shorten it.": "O seu prompt é demasiado longo, encurte-o."
+        },
+        de: {
+          "Generate Page": "Seite generieren",
+          "Generating Page...": "Seite generieren....",
+          "Creating pallete...": "Erstellen von Paletten...",
+          "Describe in detail what your site will be about, what it will offer, who is behind it, your benefits and specialties. You can write in any language.": "Beschreiben Sie detailliert, worum es auf Ihrer Website gehen wird, was sie bietet, wer dahinter steht, Ihre Vorteile und Besonderheiten. Sie können in jeder Sprache schreiben.",
+          "We are Craft22, a team of skilled artisans from Brooklyn, NY.  We offer a wide range of handmade crafts, from custom jewelry to home decor.": "Unsere Bäckerei bietet Apfelstrudel und Käsebrötchen nach Großmutters Art.",
+          "Something went wrong": "Etwas ist schief gelaufen",
+          "Try Again": "Erneut versuchen",
+          "Loading...": "Laden...",
+          "Generate New": "Erneut generieren",
+          "Download this page in zip": "Diese Seite im Zip-Format herunterladen",
+          "Your prompt is too short, add more details.": "Ihre Aufforderung ist zu kurz, fügen Sie mehr Details hinzu.",
+          "Open temp url": "Temporäre Url öffnen",
+          "Send message": "Nachricht senden",
+          "To continue please leave a review. Did you like the result, what could be improved? Help us to evolve!": "Um fortzufahren, hinterlassen Sie bitte eine Bewertung. Hat Ihnen das Ergebnis gefallen, was könnte verbessert werden? Helfen Sie uns, uns weiterzuentwickeln!",
+          "Thanks for filling out the form!": "Vielen Dank für das Ausfüllen des Formulars!",
+          "Oops...! some problem!": "Ups...! ein Problem!",
+          "Your prompt is too long, shorten it.": "Ihre Aufforderung ist zu lang, kürzen Sie sie."
+        }
+      }
+      return {
+        currentLanguage() {
+          return navigator.language || navigator.userLanguage || 'en-EN';
+        },
+        t(str) {
+          const lang = this.currentLanguage().slice(0, 2);
+          return locales[lang] ? locales[lang][str] : str;
+        }
+      }
+    })();
+    document.querySelectorAll('.text').forEach(node => {
+      if (node.innerHTML.length) node.innerText = translates.t(node.innerText)
+      if (node.placeholder?.length) node.placeholder = translates.t(node.placeholder)
+      //node.innerText = translates.t(node.innerText)
+    })
+  </script>
+  <script>
+    const sectionsList =
+    {
+      menu: `
+        <style>
+          .cid-qwe1 {
+            z-index: 1000;
+            width: 100%;
+            position: relative;
+          }
+          .cid-qwe1 .dropdown-item:before {
+            font-family: Moririse2 !important;
+            content: "\e966";
+            display: inline-block;
+            width: 0;
+            position: absolute;
+            left: 1rem;
+            top: 0.5rem;
+            margin-right: 0.5rem;
+            line-height: 1;
+            font-size: inherit;
+            vertical-align: middle;
+            text-align: center;
+            overflow: hidden;
+            transform: scale(0, 1);
+            transition: all 0.25s ease-in-out;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe1 .navbar-toggler {
+              transform: scale(0.8);
+            }
+          }
+          .cid-qwe1 .navbar-brand {
+            flex-shrink: 0;
+            align-items: center;
+            margin-right: 0;
+            padding: 10px 0;
+            transition: all 0.3s;
+            word-break: break-word;
+            z-index: 1;
+          }
+          .cid-qwe1 .navbar-brand img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 0px !important;
+          }
+          .cid-qwe1 .navbar-brand .navbar-caption {
+            line-height: inherit !important;
+          }
+          .cid-qwe1 .navbar-brand .navbar-logo a {
+            outline: none;
+          }
+          .cid-qwe1 .navbar-nav {
+            margin: auto;
+            margin-left: 0;
+            margin-left: auto;
+          }
+          .cid-qwe1 .navbar-nav .nav-item {
+            padding: 0 !important;
+            transition: .3s all !important;
+          }
+          .cid-qwe1 .navbar-nav .nav-item .nav-link {
+            padding: 16px !important;
+            margin: 0 !important;
+            border-radius: 1rem !important;
+            transition: .3s all !important;
+          }
+          .cid-qwe1 .navbar-nav .nav-item .nav-link:hover {
+            background-color: rgba(27, 31, 10, 0.06);
+          }
+          .cid-qwe1 .navbar-nav .open .nav-link::after {
+            transform: rotate(180deg);
+          }
+          @media (min-width: 992px) {
+            .cid-qwe1 .navbar-nav .open .nav-link::before {
+              content: "";
+              width: 100%;
+              height: 20px;
+              top: 100%;
+              background: transparent;
+              position: absolute;
+            }
+          }
+          .cid-qwe1 .navbar-nav .dropdown-item {
+            padding: 12px !important;
+            border-radius: 0.5rem !important;
+            margin: 0 8px !important;
+            transition: .3s all !important;
+          }
+          .cid-qwe1 .navbar-nav .dropdown-item:hover {
+            background-color: rgba(27, 31, 10, 0.06);
+          }
+          @media (min-width: 992px) {
+            .cid-qwe1 .navbar-nav {
+              padding-left: 1.5rem;
+            }
+          }
+          .cid-qwe1 .nav-link {
+            width: fit-content;
+            position: relative;
+          }
+          .cid-qwe1 .navbar-logo {
+            padding-left: 2rem;
+            margin: 0 !important;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe1 .navbar-logo {
+              padding-left: 1rem;
+            }
+          }
+          .cid-qwe1 .navbar-caption {
+            padding-left: 1rem;
+            padding-right: .5rem;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe1 .nav-dropdown {
+              padding-bottom: 0.5rem;
+            }
+          }
+          .cid-qwe1 .nav-dropdown .link.dropdown-toggle::after {
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+            transition: .3s all;
+          }
+          .cid-qwe1 .container {
+            display: flex;
+            height: 90px;
+            padding: 0.5rem 0.6rem;
+            flex-wrap: nowrap;
+            background: rgba(255, 255, 255, 0.8) !important;
+            left: 0;
+            right: 0;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: flex-end;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 100vw;
+            margin-top: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 30px 60px 0 rgba(27, 31, 10, 0.08);
+          }
+          @media (max-width: 992px) {
+            .cid-qwe1 .container {
+              padding-right: 2rem;
+            }
+          }
+          @media (max-width: 767px) {
+            .cid-qwe1 .container {
+              width: 95%;
+              height: 56px !important;
+              padding-right: 1rem;
+              margin-top: 0rem;
+            }
+          }
+          .cid-qwe1 .iconfont-wrapper {
+            color: #000000 !important;
+            font-size: 1.5rem;
+            padding-right: 0.5rem;
+          }
+          .cid-qwe1 .dropdown-menu {
+            flex-wrap: wrap;
+            flex-direction: column;
+            max-width: 100%;
+            padding: 12px 4px !important;
+            border-radius: 1.5rem;
+            transition: .3s all !important;
+            min-width: auto;
+            background: #ffffff;
+            background: rgba(255, 255, 255, 0.8) !important;
+          }
+          .cid-qwe1 .nav-item:focus,
+          .cid-qwe1 .nav-link:focus {
+            outline: none;
+          }
+          .cid-qwe1 .dropdown .dropdown-menu .dropdown-item {
+            width: auto;
+            transition: all 0.25s ease-in-out;
+          }
+          .cid-qwe1 .dropdown .dropdown-menu .dropdown-item::after {
+            right: 0.5rem;
+          }
+          .cid-qwe1 .dropdown .dropdown-menu .dropdown-item .mbr-iconfont {
+            margin-right: 0.5rem;
+            vertical-align: sub;
+          }
+          .cid-qwe1 .dropdown .dropdown-menu .dropdown-item .mbr-iconfont:before {
+            display: inline-block;
+            transform: scale(1, 1);
+            transition: all 0.25s ease-in-out;
+          }
+          .cid-qwe1 .collapsed .dropdown-menu .dropdown-item:before {
+            display: none;
+          }
+          .cid-qwe1 .collapsed .dropdown .dropdown-menu .dropdown-item {
+            padding: 0.235em 1.5em 0.235em 1.5em !important;
+            transition: none;
+            margin: 0 !important;
+          }
+          .cid-qwe1 .navbar {
+            min-height: 90px;
+            transition: all 0.3s;
+            border-bottom: 1px solid transparent;
+            background: transparent !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+          }
+          .cid-qwe1 .navbar.opened {
+            transition: all 0.3s;
+          }
+          .cid-qwe1 .navbar .dropdown-item {
+            padding: 0.5rem 1.8rem;
+          }
+          .cid-qwe1 .navbar .navbar-logo img {
+            width: auto;
+          }
+          .cid-qwe1 .navbar .navbar-collapse {
+            z-index: 1;
+            justify-content: flex-end;
+          }
+          .cid-qwe1 .navbar.collapsed {
+            justify-content: center;
+          }
+          .cid-qwe1 .navbar.collapsed .nav-item .nav-link::before {
+            display: none;
+          }
+          .cid-qwe1 .navbar.collapsed.opened .dropdown-menu {
+            top: 0;
+          }
+          @media (min-width: 992px) {
+            .cid-qwe1 .navbar.collapsed.opened:not(.navbar-short) .navbar-collapse {
+              max-height: calc(98.5vh - 3rem);
+            }
+          }
+          .cid-qwe1 .navbar.collapsed .dropdown-menu .dropdown-submenu {
+            left: 0 !important;
+          }
+          .cid-qwe1 .navbar.collapsed .dropdown-menu .dropdown-item:after {
+            right: auto;
+          }
+          .cid-qwe1 .navbar.collapsed .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
+            margin-left: 0.5rem;
+            margin-top: 0.2rem;
+            border-top: 0.35em solid;
+            border-right: 0.35em solid transparent;
+            border-left: 0.35em solid transparent;
+            border-bottom: 0;
+            top: 41%;
+          }
+          .cid-qwe1 .navbar.collapsed ul.navbar-nav li {
+            margin: auto;
+          }
+          .cid-qwe1 .navbar.collapsed .dropdown-menu .dropdown-item {
+            padding: 0.25rem 1.5rem;
+            text-align: center;
+          }
+          .cid-qwe1 .navbar.collapsed .icons-menu {
+            padding-left: 0;
+            padding-right: 0;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe1 .navbar {
+              min-height: 72px;
+            }
+            .cid-qwe1 .navbar .navbar-logo img {
+              height: 2rem !important;
+            }
+          }
+          @media (max-width: 991px) {
+            .cid-qwe1 .navbar .nav-item .nav-link::before {
+              display: none;
+            }
+            .cid-qwe1 .navbar.opened .dropdown-menu {
+              top: 0;
+            }
+            .cid-qwe1 .navbar .dropdown-menu .dropdown-submenu {
+              left: 0 !important;
+            }
+            .cid-qwe1 .navbar .dropdown-menu .dropdown-item:after {
+              right: auto;
+            }
+            .cid-qwe1 .navbar .dropdown-menu .dropdown-toggle[data-toggle="dropdown-submenu"]:after {
+              margin-left: 0.5rem;
+              margin-top: 0.2rem;
+              border-top: 0.35em solid;
+              border-right: 0.35em solid transparent;
+              border-left: 0.35em solid transparent;
+              border-bottom: 0;
+              top: 40%;
+            }
+            .cid-qwe1 .navbar .dropdown-menu .dropdown-item {
+              padding: 0.25rem 1.5rem !important;
+              text-align: center;
+            }
+            .cid-qwe1 .navbar .navbar-brand {
+              flex-shrink: initial;
+              flex-basis: auto;
+              word-break: break-word;
+              padding-right: 10px;
+            }
+            .cid-qwe1 .navbar .navbar-toggler {
+              flex-basis: auto;
+            }
+            .cid-qwe1 .navbar .icons-menu {
+              padding-left: 0;
+              padding-top: 0.5rem;
+              padding-bottom: 0.5rem;
+            }
+          }
+          .cid-qwe1 .navbar.navbar-short .navbar-logo img {
+            height: 2rem;
+          }
+          .cid-qwe1 .dropdown-item.active,
+          .cid-qwe1 .dropdown-item:active {
+            background-color: transparent;
+          }
+          .cid-qwe1 .navbar-expand-lg .navbar-nav .nav-link {
+            padding: 0;
+          }
+          .cid-qwe1 .nav-dropdown .link.dropdown-toggle {
+            margin-right: 1.667em;
+          }
+          .cid-qwe1 .nav-dropdown .link.dropdown-toggle[aria-expanded="true"] {
+            margin-right: 0;
+            padding: 0.667em 1.667em;
+          }
+          .cid-qwe1 .navbar.navbar-expand-lg .dropdown .dropdown-menu {
+            background: #ffffff;
+          }
+          .cid-qwe1 .navbar.navbar-expand-lg .dropdown .dropdown-menu .dropdown-submenu {
+            margin: 0;
+            left: 105%;
+            transform: none;
+            top: -12px;
+          }
+          .cid-qwe1 .navbar .dropdown.open > .dropdown-menu {
+            display: flex;
+          }
+          .cid-qwe1 ul.navbar-nav {
+            flex-wrap: wrap;
+          }
+          .cid-qwe1 .navbar-buttons {
+            text-align: center;
+            min-width: 140px;
+          }
+          @media (max-width: 992px) {
+            .cid-qwe1 .navbar-buttons {
+              text-align: left;
+            }
+          }
+          .cid-qwe1 button.navbar-toggler {
+            outline: none;
+            width: 31px;
+            height: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            align-self: center;
+          }
+          .cid-qwe1 button.navbar-toggler .hamburger span {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 2px;
+            border-right: 5px;
+            background-color: #000000;
+          }
+          .cid-qwe1 button.navbar-toggler .hamburger span:nth-child(1) {
+            top: 0;
+            transition: all 0.2s;
+          }
+          .cid-qwe1 button.navbar-toggler .hamburger span:nth-child(2) {
+            top: 8px;
+            transition: all 0.15s;
+          }
+          .cid-qwe1 button.navbar-toggler .hamburger span:nth-child(3) {
+            top: 8px;
+            transition: all 0.15s;
+          }
+          .cid-qwe1 button.navbar-toggler .hamburger span:nth-child(4) {
+            top: 16px;
+            transition: all 0.2s;
+          }
+          .cid-qwe1 nav.opened .hamburger span:nth-child(1) {
+            top: 8px;
+            width: 0;
+            opacity: 0;
+            right: 50%;
+            transition: all 0.2s;
+          }
+          .cid-qwe1 nav.opened .hamburger span:nth-child(2) {
+            transform: rotate(45deg);
+            transition: all 0.25s;
+          }
+          .cid-qwe1 nav.opened .hamburger span:nth-child(3) {
+            transform: rotate(-45deg);
+            transition: all 0.25s;
+          }
+          .cid-qwe1 nav.opened .hamburger span:nth-child(4) {
+            top: 8px;
+            width: 0;
+            opacity: 0;
+            right: 50%;
+            transition: all 0.2s;
+          }
+          .cid-qwe1 .navbar-dropdown {
+            padding: 0 1rem;
+          }
+          .cid-qwe1 a.nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .cid-qwe1 .icons-menu {
+            flex-wrap: nowrap;
+            display: flex;
+            justify-content: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.3rem;
+            text-align: center;
+          }
+          @media (max-width: 992px) {
+            .cid-qwe1 .icons-menu {
+              justify-content: flex-start;
+              margin-bottom: .5rem;
+            }
+          }
+          @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .cid-qwe1 .navbar {
+              height: 70px;
+            }
+            .cid-qwe1 .navbar.opened {
+              height: auto;
+            }
+            .cid-qwe1 .nav-item .nav-link:hover::before {
+              width: 175%;
+              max-width: calc(100% + 2rem);
+              left: -1rem;
+            }
+          }
+          .cid-qwe1 .navbar .dropdown > .dropdown-menu {
+            display: none;
+            width: max-content;
+            max-width: 500px !important;
+            transform: translateX(-50%);
+            top: calc(100% + 20px);
+            left: 50%;
+          }
+          .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown-item {
+            line-height: 1 !important;
+          }
+          .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item {
+            align-items: center;
+            display: flex;
+            height: max-content !important;
+            min-height: max-content !important;
+          }
+          .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item::after {
+            display: inline-block;
+            position: static;
+            margin-left: 0.5rem;
+            margin-top: 0;
+            margin-right: 0;
+            margin-bottom: 0;
+            transition: .3s all;
+            transform: rotate(-90deg);
+          }
+          .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown.open .dropdown-item::after {
+            transform: rotate(0deg);
+          }
+          .cid-qwe1 .mbr-section-btn {
+            margin: -0.6rem -0.6rem;
+          }
+          .cid-qwe1 .navbar-toggler {
+            margin-left: 12px;
+            margin-right: 8px;
+            order: 1000;
+          }
+          @media (max-width: 991px) {
+            .cid-qwe1 .navbar-brand {
+              margin-right: auto;
+            }
+            .cid-qwe1 .navbar-collapse {
+              z-index: -1 !important;
+              position: absolute;
+              top: 110%;
+              left: 0;
+              width: 100%;
+              padding: 1rem;
+              border-radius: 1.5rem;
+              background: #ffffff;
+              opacity: 1;
+              border-color: rgba(255, 255, 255, 0.8) !important;
+              background: rgba(255, 255, 255, 0.8) !important;
+              backdrop-filter: blur(8px);
+            }
+            .cid-qwe1 .navbar-nav .nav-item .nav-link::after {
+              margin-left: 10px;
+            }
+            .cid-qwe1 .navbar-nav .dropdown-item:hover {
+              background-color: rgba(27, 31, 10, 0.06);
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu {
+              max-width: 100% !important;
+              transform: translateX(0);
+              top: 10px;
+              left: 0;
+              padding: 8px !important;
+              border-radius: 1rem;
+              background-color: rgba(27, 31, 10, 0.04) !important;
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown-item {
+              padding: 8px !important;
+              line-height: 1 !important;
+              margin-bottom: 4px !important;
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item {
+              align-items: center;
+              display: flex;
+              height: max-content !important;
+              min-height: max-content !important;
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown .dropdown-item::after {
+              display: inline-block;
+              position: static;
+              margin-left: 0.5rem;
+              margin-top: 0;
+              margin-right: 0;
+              margin-bottom: 0;
+              transition: .3s all;
+              transform: rotate(0deg);
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown.open .dropdown-item::after {
+              transform: rotate(180deg);
+            }
+            .cid-qwe1 .navbar .dropdown > .dropdown-menu .dropdown-submenu {
+              position: static;
+              width: 100%;
+              max-width: 100% !important;
+              transform: translateX(0) !important;
+              top: 0;
+              left: 0;
+              padding: 8px !important;
+              border-radius: 1rem;
+              background-color: rgba(27, 31, 10, 0.04) !important;
+            }
+            .cid-qwe1 .navbar .dropdown.open > .dropdown-menu {
+              display: flex !important;
+              flex-direction: column;
+              align-items: flex-start;
+            }
+          }
+          @media (max-width: 575px) {
+            .cid-qwe1 .navbar-collapse {
+              padding: 1rem;
+            }
+          }
+        </style>
+        <section data-bs-version="5.1" class="menu menu2 cid-qwe1" once="menu" id="menu02-0">
+          <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+            <div class="container">
+              <div class="navbar-brand">
+                <span class="navbar-logo">
+                  <a href="https://mobiri.se" class="">
+                    <img src="" style="height: 3rem;">
+                  </a>
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-4" href="https://mobiri.se">Mobirise</a></span>
+              </div>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="https://mobiri.se">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="https://mobiri.se" aria-expanded="false">Services</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link link text-black display-4" href="https://mobiri.se">Contacts</a>
+                  </li></ul>
+                <div class="icons-menu">
+                  <a class="iconfont-wrapper" href="https://mobiri.se">
+                    <span class="p-2 mbr-iconfont mobi-mbri-phone mobi-mbri"></span>
+                  </a>
+                  <a class="iconfont-wrapper" href="https://mobiri.se">
+                    <span class="p-2 mbr-iconfont mobi-mbri-letter mobi-mbri"></span>
+                  </a>
+                  <a class="iconfont-wrapper" href="https://mobiri.se">
+                    <span class="p-2 mbr-iconfont mobi-mbri-map-pin mobi-mbri"></span>
+                  </a>
+                </div>
+                <div class="navbar-buttons mbr-section-btn">
+                  <a class="btn btn-primary display-4" href="https://mobiri.se"> Start Now!</a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </section>`,
+      hero_image: `
+        <style>
+          .cid-tLmr5CNhuk {
+              padding-top: 6rem;
+              padding-bottom: 0rem;
+              background-color: #9fdbf8;
+          }
+          .cid-tLmr5CNhuk .mbr-fallback-image.disabled {
+              display: none;
+          }
+          .cid-tLmr5CNhuk .mbr-fallback-image {
+              display: block;
+              background-size: cover;
+              background-position: center center;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              top: 0;
+          }
+          .cid-tLmr5CNhuk .image-wrap img {
+              width: 100%;
+          }
+          @media (min-width: 992px) {
+              .cid-tLmr5CNhuk .image-wrap img {
+                  display: block;
+                  margin: auto;
+                  width: 80%;
+              }
+          }
+        </style>
+        <section data-bs-version="5.1" class="header10 cid-tLmr5CNhuk" id="header10-19">
+            <div class="align-center container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 col-lg-9">
+                        <h1 class="mbr-section-title mbr-fonts-style mb-3 display-1">
+                            <strong>New Arrivals</strong>
+                        </h1>
+                        <div class="image-wrap mt-4">
+                            <img src="" alt="" title="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>`,
+      generic_text: `
+        <style>
+          .cid-qwe4 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+          }
+          .cid-qwe4 .mbr-fallback-image.disabled {
+            display: none;
+          }
+          .cid-qwe4 .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe4 .image-wrapper {
+              flex-direction: column;
+            }
+            .cid-qwe4 .image-wrapper img {
+              margin: auto;
+              margin-bottom: 1rem;
+            }
+          }
+          .cid-qwe4 .card-box {
+            max-width: 700px;
+            padding-top: 2rem;
+            margin-left: auto;
+            margin-right: 0;
+          }
+          .cid-qwe4 img,
+          .cid-qwe4 .item-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+          }
+          .cid-qwe4 .card-wrapper {
+            background: #ffffff;
+          }
+          .cid-qwe4 .mbr-text,
+          .cid-qwe4 .mbr-section-btn {
+            color: #000000;
+          }
+          .cid-qwe4 .card-title,
+          .cid-qwe4 .card-box {
+            color: #232323;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe4 .card-content-text {
+              padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+            }
+          }
+          @media (min-width: 768px) {
+            .cid-qwe4 .card-content-text {
+              padding: 2.25rem 2.25rem 2.25rem 2.25rem;
+            }
+          }
+        </style>
+        <section data-bs-version="5.1" class="article1 cid-qwe4" id="article01-0">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="card col-md-12 col-lg-12">
+                <div class="card-wrapper">
+                  <div class="row">
+                    <div class="image-wrapper col-12 col-sm-6 justify-content-center">
+                      <img src="">
+                    </div>
+                    <div class="image-wrapper col-12 col-sm-6 justify-content-center">
+                      <img src="">
+                    </div>
+                  </div>
+                  <div class="card-box align-left mb-3 card-content-text">
+                    <h4 class="card-title mbr-fonts-style mbr-white mb-0 display-5">
+                      <strong>Eternal Art of Photography</strong>
+                    </h4>
+                    <p class="mbr-text mbr-fonts-style mt-3 mb-0 display-7">Photography, an eternal art, embraces tradition, creativity, and skill. It captures narratives through mesmerizing frames, linking generations. From shutter to showcase, it's a form of expression that celebrates uniqueness. Photography evokes delight and empowers us to create with our own perspectives. It immortalizes memories and defines trends, igniting the allure of creation.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>`,
+      features: `
+        <style>
+          .cid-qwe3 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+          }
+          .cid-qwe3 img,
+          .cid-qwe3 .item-img {
+            width: 100%;
+            height: 100%;
+            height: 300px;
+            object-fit: cover;
+          }
+          .cid-qwe3 .item:focus,
+          .cid-qwe3 span:focus {
+            outline: none;
+          }
+          .cid-qwe3 .item {
+            margin-bottom: 2rem;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe3 .item {
+              margin-bottom: 1rem;
+            }
+          }
+          .cid-qwe3 .item-wrapper {
+            position: relative;
+            background: #ffffff;
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+          }
+          .cid-qwe3 .item-wrapper .item-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+          .cid-qwe3 .item-wrapper .item-footer {
+            margin-top: auto;
+          }
+          @media (min-width: 992px) {
+            .cid-qwe3 .item-wrapper .item-content {
+              padding: 2.25rem;
+            }
+          }
+          @media (max-width: 991px) {
+            .cid-qwe3 .item-wrapper .item-content {
+              padding: 1.5rem;
+            }
+          }
+          .cid-qwe3 .mbr-section-title {
+            color: #232323;
+          }
+          .cid-qwe3 .mbr-text,
+          .cid-qwe3 .mbr-section-btn {
+            text-align: center;
+          }
+          .cid-qwe3 .item-title {
+            text-align: center;
+          }
+          .cid-qwe3 .content-head {
+            max-width: 800px;
+          }
+        </style>
+        <section data-bs-version="5.1" class="features6 cid-qwe3" id="features06-0">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 content-head">
+                <div class="mbr-section-head mb-5">
+                  <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                    <strong>Art of Content Creation</strong>
+                  </h4>
+                  <div class="mbr-section-btn item-footer mt-4"><a href="" class="btn item-btn btn-secondary display-7">Get Started</a></div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="item features-image col-12 col-md-6 col-lg-4">
+                <div class="item-wrapper">
+                  <div class="item-img">
+                    <img src="">
+                  </div>
+                  <div class="item-content">
+                    <p class="mbr-text mbr-fonts-style mt-2 display-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis .</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item features-image col-12 col-md-6 col-lg-4">
+                <div class="item-wrapper">
+                  <div class="item-img">
+                    <img src="">
+                  </div>
+                  <div class="item-content">
+                    <p class="mbr-text mbr-fonts-style mt-2 display-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis .</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item features-image col-12 col-md-6 col-lg-4">
+                <div class="item-wrapper">
+                  <div class="item-img">
+                    <img src="">
+                  </div>
+                  <div class="item-content">
+                    <p class="mbr-text mbr-fonts-style mt-2 display-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit turpis .</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>`,
+      gallery: `
+        <style>
+          .cid-qwe5 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+          }
+          .cid-qwe5 .mbr-fallback-image.disabled {
+            display: none;
+          }
+          .cid-qwe5 .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+          .cid-qwe5 .item {
+            margin-bottom: 2rem;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe5 .item {
+              margin-bottom: 1rem;
+            }
+          }
+          .cid-qwe5 .item-wrapper {
+            height: 100%;
+            position: relative;
+          }
+          .cid-qwe5 .item-wrapper img {
+            height: 100%;
+            object-fit: cover;
+          }
+          .cid-qwe5 .item-wrapper .icon-wrapper {
+            pointer-events: none;
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            font-size: 22px;
+            left: 50%;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            opacity: 0;
+            color: #464845 !important;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: #edefea !important;
+            transition: 0.2s;
+          }
+          .cid-qwe5 .item-wrapper:hover .icon-wrapper {
+            opacity: 1;
+          }
+          .cid-qwe5 .carousel-control,
+          .cid-qwe5 .close {
+            background: #1b1b1b;
+          }
+          .cid-qwe5 .carousel-control-prev {
+            margin-left: 2.5rem;
+          }
+          .cid-qwe5 .carousel-control-prev span {
+            margin-right: 5px;
+          }
+          .cid-qwe5 .carousel-control-next {
+            margin-right: 2.5rem;
+          }
+          .cid-qwe5 .carousel-control-next span {
+            margin-left: 5px;
+          }
+          .cid-qwe5 .close {
+            position: fixed;
+            opacity: 0.5;
+            font-size: 22px;
+            font-weight: 300;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: #fff;
+            top: 2.5rem;
+            right: 2.5rem;
+            border: 2px solid #fff;
+            text-shadow: none;
+            z-index: 5;
+            transition: opacity 0.3s ease;
+            font-family: 'Moririse2';
+            align-items: center;
+            justify-content: center;
+            display: flex;
+          }
+          .cid-qwe5 .close::before {
+            content: '\e91a';
+          }
+          .cid-qwe5 .close:hover {
+            opacity: 1;
+            background: #000;
+            color: #fff;
+          }
+          .cid-qwe5 .carousel-control {
+            display: flex;
+            top: 50%;
+            width: 60px;
+            height: 60px;
+            margin-top: -1.5rem;
+            font-size: 22px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            transition: all 0.3s;
+          }
+          .cid-qwe5 .carousel-control.carousel-control-prev {
+            left: 0;
+            margin-left: 2.5rem;
+          }
+          .cid-qwe5 .carousel-control.carousel-control-next {
+            right: 0;
+            margin-right: 2.5rem;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe5 .carousel-control {
+              top: auto;
+              bottom: 1rem;
+            }
+          }
+          .cid-qwe5 .carousel-indicators {
+            position: absolute;
+            bottom: 0;
+            margin-bottom: 3px;
+          }
+          .cid-qwe5 .carousel-indicators li {
+            max-width: 15px;
+            height: 15px;
+            width: 15px;
+            max-height: 15px;
+            margin: 3px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            opacity: 0.5;
+            transition: all 0.3s;
+          }
+          .cid-qwe5 .carousel-indicators li.active,
+          .cid-qwe5 .carousel-indicators li:hover {
+            opacity: 0.9;
+          }
+          .cid-qwe5 .carousel-indicators li::after,
+          .cid-qwe5 .carousel-indicators li::before {
+            content: none;
+          }
+          .cid-qwe5 .carousel-indicators.ie-fix {
+            left: 50%;
+            display: block;
+            width: 60%;
+            margin-left: -30%;
+            text-align: center;
+          }
+          @media (max-width: 768px) {
+            .cid-qwe5 .carousel-indicators {
+              display: none !important;
+            }
+          }
+          @media (max-width: 991px) {
+            .cid-qwe5 .carousel-indicators {
+              margin-bottom: 3.625rem !important;
+              padding-left: 2.5rem;
+              padding-right: 2.5rem;
+            }
+          }
+          @media (max-width: 767px) {
+            .cid-qwe5 .carousel-indicators {
+              display: none;
+            }
+          }
+          .cid-qwe5 .carousel-inner {
+            display: flex;
+            align-items: center;
+          }
+          .cid-qwe5 .carousel-inner > .active {
+            display: block;
+          }
+          .cid-qwe5 .carousel-control.left {
+            left: 0;
+            margin-left: 2.5rem;
+          }
+          .cid-qwe5 .carousel-control.right {
+            right: 0;
+            margin-right: 2.5rem;
+          }
+          .cid-qwe5 .carousel-control:hover {
+            background: #1b1b1b;
+            color: #fff;
+            opacity: 1;
+          }
+          @media (max-width: 768px) {
+            .cid-qwe5 .carousel-control,
+            .cid-qwe5 .carousel-indicators,
+            .cid-qwe5 .modal .close {
+              position: fixed;
+            }
+          }
+          @media (max-width: 767px) {
+            .cid-qwe5 .mbr-slider .carousel-control {
+              top: auto;
+              bottom: 20px;
+            }
+            .cid-qwe5 .mbr-slider > .container .carousel-control {
+              margin-bottom: 0;
+            }
+          }
+          .cid-qwe5 .carousel-indicators .active,
+          .cid-qwe5 .carousel-indicators li {
+            width: 7px;
+            height: 7px;
+            margin: 3px;
+            background: #000000;
+            opacity: 0.5;
+            border: 4px solid #000000;
+          }
+          .cid-qwe5 .carousel-indicators .active {
+            background: #fff;
+          }
+          .cid-qwe5 .carousel-indicators li {
+            max-width: 15px;
+            max-height: 15px;
+            border-radius: 50%;
+          }
+          .cid-qwe5 .modal {
+            padding-left: 0 !important;
+            position: fixed;
+            overflow: hidden;
+            padding-right: 0 !important;
+          }
+          .cid-qwe5 .modal-dialog {
+            margin: 0 auto;
+            max-width: 100%;
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+          .cid-qwe5 .modal-content {
+            border-radius: 0;
+            border: none;
+            background: transparent;
+          }
+          .cid-qwe5 .modal-body {
+            padding: 0;
+            display: flex;
+            align-items: center;
+          }
+          .cid-qwe5 .modal-body img {
+            width: 100%;
+            object-fit: contain;
+            max-height: calc(100vh - 1.75rem);
+          }
+          .cid-qwe5 .carousel {
+            width: 100%;
+          }
+          .cid-qwe5 .modal-backdrop.in {
+            opacity: 0.8;
+          }
+          .cid-qwe5 .modal.fade .modal-dialog {
+            transition: margin-top 0.3s ease-out;
+          }
+          .cid-qwe5 .modal.fade .modal-dialog,
+          .cid-qwe5 .modal.in .modal-dialog {
+            transform: none;
+          }
+          .cid-qwe5 .mbr-gallery .item-wrapper {
+            cursor: pointer;
+          }
+          .cid-qwe5 .content-head {
+            max-width: 800px;
+          }
+        </style>
+        <section data-bs-version="5.1" class="gallery1 mbr-gallery cid-qwe5" id="gallery01-0">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12 content-head">
+                        <div class="mb-5">
+                            <h3 class="mbr-section-title mbr-fonts-style align-center m-0 display-2"><strong>Gallery with Popup Slider</strong></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mbr-gallery">
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="0" data-bs-slide-to="0" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="1" data-bs-slide-to="1" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="2" data-bs-slide-to="2" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="3" data-bs-slide-to="3" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="4" data-bs-slide-to="4" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="5" data-bs-slide-to="5" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="6" data-bs-slide-to="6" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3 item gallery-image">
+                        <div class="item-wrapper mb-3" data-toggle="modal" data-bs-toggle="modal" data-target="#tPqwe5-modal" data-bs-target="#tPqwe5-modal">
+                            <img class="w-100" src="" data-slide-to="7" data-bs-slide-to="7" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5">
+                            <div class="icon-wrapper">
+                                <span class="mobi-mbri mobi-mbri-search mbr-iconfont mbr-iconfont-btn"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal mbr-slider" tabindex="-1" role="dialog" aria-hidden="true" id="tPqwe5-modal">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="carousel slide" data-pause="false" data-bs-pause="false" id="lb-tPqwe5" data-interval="5000" data-bs-interval="5000">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100" src="">
+                                        </div>
+                                    </div>
+                                    <ol class="carousel-indicators">
+                                        <li data-slide-to="0" data-bs-slide-to="0" class="active" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="1" data-bs-slide-to="1" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="2" data-bs-slide-to="2" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="3" data-bs-slide-to="3" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="4" data-bs-slide-to="4" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="5" data-bs-slide-to="5" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="6" data-bs-slide-to="6" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                        <li data-slide-to="7" data-bs-slide-to="7" data-target="#lb-tPqwe5" data-bs-target="#lb-tPqwe5"></li>
+                                    </ol>
+                                    <a role="button" href="" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
+                                    </a>
+                                    <a class="carousel-control-prev carousel-control" role="button" data-slide="prev" data-bs-slide="prev" href="#lb-tPqwe5">
+                                        <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+                                        <span class="sr-only visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next carousel-control" role="button" data-slide="next" data-bs-slide="next" href="#lb-tPqwe5">
+                                        <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+                                        <span class="sr-only visually-hidden">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>`,
+      testimonials: `
+        <style>
+          .cid-qwe6 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-color: transparent;
+          }
+          .cid-qwe6 .mbr-fallback-image.disabled {
+            display: none;
+          }
+          .cid-qwe6 .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+          .cid-qwe6 p {
+            line-height: 1.2;
+          }
+          .cid-qwe6 .embla__slide {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            min-width: 770px;
+            max-width: 570px;
+          }
+          @media (max-width: 768px) {
+            .cid-qwe6 .embla__slide {
+              min-width: 70%;
+              max-width: initial;
+              margin-left: 1rem !important;
+              margin-right: 1rem !important;
+            }
+          }
+          .cid-qwe6 .embla__button--next,
+          .cid-qwe6 .embla__button--prev {
+            display: flex;
+          }
+          .cid-qwe6 .embla__button {
+            top: 50%;
+            width: 60px;
+            height: 60px;
+            margin-top: -1.5rem;
+            font-size: 22px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            transition: all 0.3s;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .cid-qwe6 .embla__button:disabled {
+            cursor: default;
+            display: none;
+          }
+          .cid-qwe6 .embla__button:hover {
+            background: #000;
+            color: rgba(255, 255, 255, 0.5);
+          }
+          .cid-qwe6 .embla__button.embla__button--prev {
+            left: 0;
+            margin-left: 2.5rem;
+          }
+          .cid-qwe6 .embla__button.embla__button--next {
+            right: 0;
+            margin-right: 2.5rem;
+          }
+          @media (max-width: 768px) {
+            .cid-qwe6 .embla__button {
+              top: auto;
+            }
+          }
+          .cid-qwe6 .item-wrapper {
+            height: 100%;
+          }
+          .cid-qwe6 .item-menu-overlay {
+            border-radius: 2rem;
+          }
+          .cid-qwe6 .user_image {
+            max-width: 600px;
+            max-height: 400px;
+            margin-bottom: 1.6rem;
+            overflow: hidden;
+            margin: 0 auto 2rem auto;
+          }
+          .cid-qwe6 .user_image img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+          }
+          @media (max-width: 230px) {
+            .cid-qwe6 .user_image {
+              width: 100%;
+              height: auto;
+            }
+          }
+          .cid-qwe6 .embla {
+            position: relative;
+            width: 100%;
+          }
+          .cid-qwe6 .embla__viewport {
+            overflow: hidden;
+            width: 100%;
+          }
+          .cid-qwe6 .embla__viewport.is-draggable {
+            cursor: grab;
+          }
+          .cid-qwe6 .embla__viewport.is-dragging {
+            cursor: grabbing;
+          }
+          .cid-qwe6 .embla__container {
+            display: flex;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+          }
+          .cid-qwe6 .user_desk {
+            color: #232323;
+          }
+          .cid-qwe6 .user_name {
+            color: #232323;
+          }
+        </style>
+        <section data-bs-version="5.1" class="slider2 mbr-embla cid-qwe6" id="slider02-0">
+          <div class="position-relative text-center">
+            <div class="embla" data-skip-snaps="true" data-align="center" data-auto-play-interval="5" data-draggable="true">
+              <div class="embla__viewport container-fluid">
+                <div class="embla__container">
+                  <div class="embla__slide slider-image item" style="margin-left: 10rem; margin-right: 10rem;">
+                    <div class="user">
+                      <div class="user_image">
+                        <div class="item-wrapper position-relative">
+                          <img src="">
+                        </div>
+                      </div>
+                      <div class="user_text mb-4">
+                        <p class="mbr-fonts-style display-5">
+                          <strong>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae rutrum
+										metus. Integer velit nisl, ultrices id tempor ultrices enim."</strong>
+                        </p>
+                      </div>
+                      <div class="user_name mbr-fonts-style mb-2 display-7">
+                        Catherine Bowling
+                      </div>
+                      <div class="user_desk mbr-fonts-style display-7">
+                        Influencer
+                      </div>
+                    </div>
+                  </div>
+                  <div class="embla__slide slider-image item" style="margin-left: 10rem; margin-right: 10rem;">
+                    <div class="user">
+                      <div class="user_image">
+                        <div class="item-wrapper position-relative">
+                          <img src="">
+                        </div>
+                      </div>
+                      <div class="user_text mb-4">
+                        <p class="mbr-fonts-style display-5">
+                          <strong>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae rutrum
+										metus. Integer velit nisl, ultrices id tempor ultrices enim."</strong>
+                        </p>
+                      </div>
+                      <div class="user_name mbr-fonts-style mb-2 display-7">
+                        Cynthia Diaz
+                      </div>
+                      <div class="user_desk mbr-fonts-style display-7">
+                        Influencer
+                      </div>
+                    </div>
+                  </div>
+                  <div class="embla__slide slider-image item" style="margin-left: 10rem; margin-right: 10rem;">
+                    <div class="user">
+                      <div class="user_image">
+                        <div class="item-wrapper position-relative">
+                          <img src="">
+                        </div>
+                      </div>
+                      <div class="user_text mb-4">
+                        <p class="mbr-fonts-style display-5">
+                          <strong>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vitae rutrum
+										metus. Integer velit nisl, ultrices id tempor ultrices enim."</strong>
+                        </p>
+                      </div>
+                      <div class="user_name mbr-fonts-style mb-2 display-7">
+                        Sharon Davis
+                      </div>
+                      <div class="user_desk mbr-fonts-style display-7">
+                        Influencer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="embla__button embla__button--prev">
+                <span class="mobi-mbri mobi-mbri-arrow-prev mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden visually-hidden">Previous</span>
+              </button>
+              <button class="embla__button embla__button--next">
+                <span class="mobi-mbri mobi-mbri-arrow-next mbr-iconfont" aria-hidden="true"></span>
+                <span class="sr-only visually-hidden visually-hidden visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </section>`,
+      call_to_action: `
+        <style>
+          .cid-qwe7 {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+            background-image: url("https://source.unsplash.com/random");
+          }
+          .cid-qwe7 .mbr-fallback-image.disabled {
+            display: none;
+          }
+          .cid-qwe7 .mbr-fallback-image {
+            display: block;
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+          }
+          .cid-qwe7 .card-wrapper {
+            background: #ffffff;
+            border-radius: 4px;
+          }
+          @media (max-width: 767px) {
+            .cid-qwe7 .card-wrapper {
+              padding: 2rem 1.5rem;
+              margin-bottom: 1rem;
+            }
+          }
+          @media (min-width: 768px) and (max-width: 991px) {
+            .cid-qwe7 .card-wrapper {
+              padding: 2.25rem;
+            }
+          }
+          @media (min-width: 992px) {
+            .cid-qwe7 .card-wrapper {
+              padding: 4rem;
+            }
+          }
+          .cid-qwe7 .mbr-text,
+          .cid-qwe7 .mbr-section-btn {
+            text-align: left;
+          }
+          .cid-qwe7 .card-title {
+            text-align: left;
+          }
+        </style>
+        <section data-bs-version="5.1" class="header14 cid-qwe7" id="header14-0">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="card col-12 col-md-12 col-lg-8">
+                <div class="card-wrapper">
+                  <div class="card-box align-center">
+                    <h1 class="card-title mbr-fonts-style mb-4 display-1">
+                      <strong>Create site now</strong>
+                    </h1>
+                    <div class="mbr-section-btn mt-4">
+                      <a class="btn btn-warning display-7" href="https://mobiri.se">Start Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        `,
+      footer_mini: `
+        <style>
+          .cid-qwe2 {
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: #000000;
+            overflow: hidden;
+          }
+        </style>
+        <section data-bs-version="5.1" class="footer4 cid-qwe2" once="footers" id="footer04-0">
+            <div class="container">
+                <div class="media-container-row align-center mbr-white">
+                    <div class="col-12">
+                        <p class="mbr-text mb-0 mbr-fonts-style display-7">
+                            © Copyright 2030 Mobirise - All Rights Reserved
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>`
+    }
+
+    async function request(url, options = {}) {
+      const urlPrefix = /^https?:/i.test(url) ? '' : APP_URL
+      const res = await fetch(urlPrefix + url, {
+        mode: 'cors',
+        redirect: 'manual',
+        ...options
+      })
+      const data = await res.json()
+      if (res.ok) {
+        return data
+      }
+      throw Object.assign(new Error(data.message), { code: data.type })
+    }
+
+    function sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms))
+    }
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    async function waitUntilPageIsReady(page, { maxErrors = 5 } = {}) {
+      let errors = maxErrors
+      while (true) {
+        try {
+          const status = await request(page.urls.statusCheck)
+          if (status.name === 'READY') {
+            return
+          }
+          if (status.name === 'ERROR') {
+            throw Object.assign(new Error(status.reason), { code: 'PageFillError' })
+          }
+        } catch (err) {
+          if (err.code === 'PageFillError') {
+            throw err
+          }
+          if (--errors <= 0) {
+            throw err
+          }
+        }
+        await sleep(random(4000, 10000))
+      }
+    }
+
+    async function waitUntilZipIsReady(zip, { maxErrors = 5 } = {}) {
+      let errors = maxErrors
+      while (true) {
+        try {
+          const status = await request(zip.job.url)
+          if (status.state === 'COMPLETE') {
+            const link = document.createElement('a');
+            link.setAttribute('href', status.result.downloadUrl);
+            link.click();
+            return
+          }
+          if (status.state === 'CANCELLED') {
+            throw Object.assign(new Error(status.reason), { code: 'NotFound' })
+          }
+        } catch (err) {
+          if (err.type === 'NotFound') {
+            throw err
+          }
+          if (--errors <= 0) {
+            throw err
+          }
+        }
+        await sleep(random(4000, 10000))
+      }
+    }
+
+    async function createPage(data) {
+      return request('/api/v1/pages', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+    }
+
+    const palettes = (() => {
+      let promiseLoad
+      const collection = {}
+      return {
+        load() {
+          if (!promiseLoad) {
+            promiseLoad = request('/api/v1/palettes').then((palettes) => {
+              for (const palette of palettes) {
+                collection[palette.id] = palette
+              }
+            })
+          }
+          return promiseLoad
+        },
+        find(paletteId) {
+          return collection[paletteId]
+        }
+      }
+    })();
+
+    const iframe = (() => {
+      let iframeDom;
+      return {
+        create(src) {
+          let generatedSiteIframe = document.createElement('iframe');
+          generatedSiteIframe.id = 'generatedSite';
+          generatedSiteIframe.setAttribute('frameborder', 0)
+          generatedSiteIframe.setAttribute('height', '100%')
+          generatedSiteIframe.setAttribute('width', '100%')
+          generatedSiteIframe.src = src;
+          document.body.append(generatedSiteIframe);
+        },
+        hide() {
+          document.getElementById(generatedSite).remove();
+        },
+        dom() {
+          return iframeDom;
+        }
+      }
+    })();
+
+    const feedback = (() => {
+      let feedbackModal;
+      return {
+        show() {
+          feedbackModal = new bootstrap.Modal(document.getElementById('feedbackModal'), {
+            keyboard: false,
+          });
+          feedbackModal.show();
+        },
+        hide() {
+          feedbackModal.hide();
+        }
+      }
+    })();
+
+    const emailForm = (() => {
+      let emailFormModal;
+      return {
+        create(page) {
+          if (!document.getElementById('emailForm')) {
+            const emailFormHtml = `
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title" id="emailFormLabel">Mobirise AI</h1>
+                  <span>Experimental Alpha</span>
+                  <p>Website Builder</p>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label class="form-label">Send download link to:</label>
+                      <input type="email" name="email" placeholder="Your E-mail" class="form-control">
+                    </div>
+                    <div class="mbr-section-btn d-flex justify-content-between" style="padding: 0">
+                      <div class="d-flex align-items-center lh-sm" style="font-size: 0.75rem; max-width: 260px; color: #9b9b9b;">
+                        <span>By continuing, you agree to our <a href="https://mobirise.com/terms.html" target="_blank">Terms of Service</a> and acknowledge that you read our <a href="https://mobirise.com/privacy.html" target="_blank">Privacy Policy</a>
+                        </span>
+                      </div>
+                      <button type="submit" class="btn btn-primary display-7 text">Send link</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>`
+
+            let emailFormDOM = document.createElement('div');
+            emailFormDOM.innerHTML = emailFormHtml;
+            emailFormDOM.classList.add('modal');
+            emailFormDOM.classList.add('fade');
+
+            emailFormDOM.setAttribute('id', 'emailForm');
+            emailFormDOM.setAttribute('tabindex', '-1');
+            emailFormDOM.setAttribute('aria-labelledby', 'emailFormLabel');
+            emailFormDOM.setAttribute('aria-hidden', true);
+
+            emailFormModal = new bootstrap.Modal(emailFormDOM);
+
+            let form = emailFormDOM.querySelector('form');
+            let formButton = form.querySelector('.btn');
+
+            form.addEventListener('input', async (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+
+              if (e.target.value) formButton.disabled = false
+              else formButton.disabled = true;
+            })
+
+            form.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              try {
+                await request('https://lab-mobirise-ai.ui-api.com/api/v1/pages/' + page.meta.id + '/zip',
+                {
+                  method: 'POST',
+                  body: JSON.stringify({email: e.target[0].value})
+                });
+                emailForm.hide();
+                alert.create().show().text(translates.t('Thank you! Check your inbox now.'))
+              } catch (error) {
+                emailForm.hide();
+                alert.create('Ok').show().text(error.message)
+              }
+            })
+          }
+          return this;
+        },
+        show() {
+          emailFormModal.show();
+          return this;
+        },
+        hide() {
+          emailFormModal.hide();
+          return this;
+        }
+      }
+    })();
+
+    const downloadButton = (() => {
+      let downloadButtonDom;
+      return {
+        create(page) {
+          downloadButtonDom = document.createElement('div');
+          downloadButtonDom.id = 'downloadButton';
+
+          downloadButtonDom.innerHTML = `
+          <div class="d-flex pt-3 pb-3 pe-3">
+            <button type="button" class="btn refresh btn-primary-outline"><span>${translates.t('Generate New')}</span></button>
+            <button type="button" class="btn btn-generate btn-primary"><span>${translates.t('Download this page in zip')}</span></button>
+          </div>`;
+
+          document.body.append(downloadButtonDom);
+          let btn = downloadButtonDom.querySelector('.btn-generate');
+          downloadButtonDom.querySelector('.refresh').addEventListener('click', () => location.reload());
+          // downloadButtonDom.querySelector('.temp-url').addEventListener('click', () => {
+          //   emailForm.create(page).show();
+            
+          //   // let link = document.createElement('a')
+          //   // link.setAttribute('href', page.urls.public);
+          //   // link.setAttribute('target', '_blank')
+          //   // link.click();
+          // })
+          return btn;
+        },
+        loading() {
+          const btn = downloadButtonDom.querySelector('.btn-generate');
+          btn.querySelector('span').classList.add('visually-hidden');
+          btn.querySelector('span').setAttribute('role', 'status');
+          const spiner = document.createElement('span');
+          spiner.classList.add('spinner-border')
+          spiner.setAttribute('aria-hidden', true)
+          btn.append(spiner);
+        },
+        loadingRemove() {
+          downloadButtonDom.querySelector('.visually-hidden').classList.remove('visually-hidden');
+          downloadButtonDom.querySelector('.spinner-border').remove();
+        },
+        showEmailForm() {
+
+        },
+        hide() {
+          downloadButtonDom.remove();
+        }
+      }
+    })();
+
+    const sections = (() => {
+      let fakeSections = [
+        {
+          "id": "menu"
+        },
+        {
+          "id": "hero_image",
+        },
+        {
+          "id": "generic_text"
+        },
+        {
+          "id": "generic_text"
+        },
+        {
+          "id": "features",
+        },
+        {
+          "id": "generic_text",
+        },
+        {
+          "id": "gallery",
+        },
+        {
+          "id": "testimonials",
+        },
+        {
+          "id": "call_to_action",
+        },
+        {
+          "id": "footer_mini",
+        }
+      ]
+      let fakeLoopSection = [
+        {
+          "id": "generic_text"
+        },
+        {
+          "id": "features",
+        },
+        {
+          "id": "call_to_action",
+        },
+        {
+          "id": "gallery",
+        },
+        {
+          "id": "testimonials",
+        }
+      ]
+
+      return {
+        hide() {
+          document.body.querySelectorAll('section').forEach(item => {
+            item.setAttribute('hidden', true)
+          })
+        },
+        show() {
+          document.body.querySelectorAll('section').forEach(item => {
+            item.removeAttribute('hidden')
+          })
+        },
+        fakeRender(page) {
+          let sections = document.querySelectorAll('section');
+          this.interval = setInterval(() => {
+            let sectionHTML = document.createElement('div');
+            let a = Math.floor(Math.random() * fakeLoopSection.length);
+            sectionHTML.innerHTML = sectionsList[fakeLoopSection[a].id];
+
+            let sectionStyle = sectionHTML.querySelector('style')
+            let sectionDOM = sectionHTML.querySelector('section')
+
+            sectionDOM.querySelectorAll('img').forEach((image, i) => {
+              image.src = `https://source.unsplash.com/random?v=${Math.floor(Math.random() * 10000)}`
+            })
+
+            sections[sections.length - 1].before(sectionStyle);
+            sections[sections.length - 1].before(sectionDOM);
+            sectionDOM.style.display = 'block';
+            window.scrollTo(0, document.body.scrollHeight - sections[sections.length - 1].clientHeight);
+          }, 6000);
+          return this;
+        },
+        fakeRenderStop() {
+          if (this.interval) clearInterval(this.interval);
+        },
+        async render(page) {
+          return new Promise((resolve, reject) => {
+            document.body.querySelectorAll('section').forEach((section) => {
+              section.remove();
+            })
+            let scriptSrcArray = []
+
+            const animationStart = () => {
+              let timer = 0;
+              fakeSections.forEach((section, i) => {
+                timer++;
+                (function () {
+                  let sectionHTML = document.createElement('div');
+                  setTimeout(() => {
+                    sectionHTML.innerHTML = sectionsList[section.id];
+                    let sectionStyle = sectionHTML.querySelector('style')
+                    let sectionDOM = sectionHTML.querySelector('section')
+
+                    sectionDOM.querySelectorAll('img').forEach((image, i) => {
+                      image.src = `https://source.unsplash.com/random?v=${Math.floor(Math.random() * 10000)}`
+                    })
+
+                    document.body.append(sectionStyle);
+                    document.body.append(sectionDOM);
+
+                    sectionDOM.style.display = 'block';
+                    window.scrollTo(0, document.body.scrollHeight);
+
+                    if (fakeSections[fakeSections.length - 1].id === section.id) {
+                      scriptSrcArray.forEach(src => {
+                        let newItem = document.createElement('script');
+                        document.body.append(newItem)
+                        newItem.src = src;
+                      })
+                      resolve();
+                    }
+                  }, timer * 6000);
+                })()
+              });
+            }
+
+            animationStart();
+
+            document.querySelectorAll('script').forEach((item) => {
+              if (item.dataset.src) {
+                scriptSrcArray.push(item.dataset.src)
+                item.remove();
+              }
+            })
+          });
+        }
+      }
+    })();
+
+    const loader = (() => {
+      let loaderElement;
+      return {
+        create() {
+          loaderElement = document.createElement('div');
+          loaderElement.innerHTML = `
+          <div class="d-flex flex-wrap justify-content-center align-items-center text-center h-100">
+            <div>
+              <p class="loaderText display-5 text-primary">${translates.t('Loading...')}</p>
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>`;
+          document.body.append(loaderElement);
+          loaderElement.style.transition = '500ms';
+          loaderElement.style.zIndex = 1050;
+          return this;
+        },
+        text(text) {
+          loaderElement.querySelector('.loaderText').innerText = text;
+        },
+        show() {
+          loaderElement.classList.add('modal-backdrop');
+          loaderElement.classList.add('show');
+          return this;
+        },
+        hide() {
+          loaderElement.style.backgroundColor = '#9fe870';
+          loaderElement.style.opacity = 1;
+          setTimeout(() => {
+            loaderElement.style.opacity = 0;
+            setTimeout(() => {
+              loaderElement.classList.remove('modal-backdrop');
+              loaderElement.classList.remove('show');
+              loaderElement.remove();
+            }, 500);
+          }, 500);
+          return this;
+        }
+      }
+    })();
+
+    const alert = (() => {
+      let alertElement;
+      return {
+        create(buttonText) {
+          let aiAlert = document.getElementById('aiWizardAlert');
+          if (aiAlert) aiAlert.remove();
+
+          alertElement = document.createElement('div');
+          alertElement.classList.add('modal');
+          alertElement.setAttribute('id', 'aiWizardAlert');
+          alertElement.setAttribute('tabindex', -1);
+
+          alertElement.innerHTML = `
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content" style="height:auto">
+                <div class="modal-header">
+                  <h1 class="modal-title display-5">Mobirise AI</h1><span>Experimental Alpha</span><p>Website Builder</p>
+                </div>
+                <div class="modal-body display-7">
+                  <div class="mb-3">
+                    <p class="modal-text display-7">${translates.t('Something went wrong')}</p>
+                  </div>
+                  <div class="mbr-section-btn text-end" style="padding: 0;margin-left:-0.5rem;margin-right:-0.5rem">
+                    <button style="margin-left:0.5rem; margin-right:0.5rem" ${(buttonText === 'Ok') ? 'data-bs-target="#aiWizard" ' : ''} data-bs-toggle="modal" data-bs-dismiss="modal" class="btn btn-primary display-7">${buttonText || translates.t('Ok')}</button>
+                  </div>
+                </div>
+              </div>
+            </div>`
+
+          if (Array.isArray(buttonText)) {
+            alertElement.querySelector('button').remove();
+            buttonText.forEach((msg, i) => {
+              let button = document.createElement('button');
+              button.setAttribute('style', 'margin-left:0.5rem;margin-right:0.5rem;')
+              button.innerText = msg;
+              button.setAttribute('data-bs-toggle', 'modal');
+              button.setAttribute('data-bs-dismiss', 'modal');
+              if (msg === translates.t('Try Again')) {
+                button.setAttribute('data-bs-target', '#aiWizard')
+                button.addEventListener('click', () => {
+                  document.body.querySelectorAll('iframe').forEach((iframe) => {
+                    iframe.remove();
+                  })
+                })
+              };
+              button.classList.add('btn');
+              button.classList.add('btn-primary');
+              button.classList.add('display-7');
+              alertElement.querySelector('.mbr-section-btn').append(button)
+            })
+          }
+          
+          document.body.append(alertElement);
+          var myModal = new bootstrap.Modal(alertElement, {
+            keyboard: false,
+            backdrop: 'static'
+          })
+          myModal.show();
+          return this;
+        },
+        text(text) {
+          alertElement.querySelector('.modal-text').innerText = text;
+          return this;
+        },
+        show() {
+          return this;
+        },
+        hide() {
+          let a = bootstrap.Modal.getInstance(alertElement);
+          alertElement.remove();
+          return this;
+        }
+      }
+    })();
+
+    const options = {
+      keyboard: false,
+      backdrop: 'static'
+    }
+    const aiWizard = document.getElementById('aiWizard');
+    const aiWizardModal = new bootstrap.Modal(aiWizard, {
+      keyboard: false,
+      backdrop: 'static'
+    });
+    aiWizardModal.show();
+    let wizardTextarea = aiWizard.querySelector('textarea');
+    let wizardButton = aiWizard.querySelector('button');
+    wizardTextarea.addEventListener('input', (e) => {
+      let target = e.target;
+      if ((e.target.value?.length || 0) <= 1 ) {
+        wizardButton.disabled = true
+      } else {
+        wizardButton.disabled = false;
+      }
+    })
+
+    const feedbackForm = feedbackModal.querySelector('form');
+    feedbackForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.target[1].value.length <= 32) {
+        alert.create().text(translates.t('Your feedback message is too short, add more details.'));
+        return;
+      }
+      feedbackForm.reset();
+      feedback.hide();
+    })
+    const textareaFeedbackButton = feedbackForm.querySelector('button');
+    const textareaFeedbackForm = feedbackForm.querySelector('textarea');
+    textareaFeedbackForm.addEventListener('focus', (e) => {
+      let target = e.target;
+      if (e.target.value.length <= 32 ) {
+        textareaFeedbackButton.disabled = true
+      } else {
+        textareaFeedbackButton.disabled = false;
+      }
+    })
+    textareaFeedbackForm.addEventListener('input', (e) => {
+      let target = e.target;
+      if (e.target.value.length <= 32 ) {
+        textareaFeedbackButton.disabled = true
+      } else {
+        textareaFeedbackButton.disabled = false;
+      }
+    })
+
+    const form = aiWizard.querySelector('form');
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      let data = { prompt: e.target[0].value }
+
+      if (e.target[0].value?.length <= 32) {
+        alert.create().text(translates.t('Your prompt is too short, add more details.'));
+        return;
+      } else if (e.target[0].value?.length >= 1000) {
+        alert.create().text(translates.t('Your prompt is too long, shorten it.'));
+        return;
+      }
+          
+      aiWizardModal.hide();
+
+      form.reset();
+      loader.create().show();
+      loader.text(translates.t('Generating Page...'))
+      try {
+        loader.text(translates.t('Creating pallete...'));
+        await palettes.load();
+        loader.text(translates.t('Generating Page...'))
+        const page = await createPage(data);
+
+        loader.text(page.meta.systemMessage);
+        await sections.render(page);
+        sections.fakeRender();
+        await waitUntilPageIsReady(page);
+        sections.fakeRenderStop();
+        sections.hide();
+        loader.hide();
+        iframe.create(page.urls.public);
+
+        const checkPage = await request('https://ai-builder.mobirise.com/api/v1/pages/' + page?.meta?.id);
+        console.log(checkPage.sections)
+        if (checkPage.sections?.length <= 5) {
+          alert.create([translates.t('Try Again'), translates.t('Continue')]).text(translates.t('Something went wrong. Your site was not completed. Do you want to try again or continue?'))
+        }
+        const btn = downloadButton.create(page);
+        btn.addEventListener('click', async () => {
+          emailForm.create(page).show()
+        })
+
+          // feedback.show();
+          // downloadButton.loading();
+          // const zip = await request('https://lab-mobirise-ai.ui-api.com/api/v1/pages/' + page.meta.id + '/zip', { method: 'POST' });
+          // await waitUntilZipIsReady(zip);
+          // downloadButton.loadingRemove();
+
+      } catch (e) {
+        loader.hide();
+        sections.fakeRenderStop();
+        alert.create('Ok');
+      }
+    })
+
+    // Automaticaly insert prompt url parameter if exist
+    let prompt = new URL(document.location).searchParams.get('prompt');
+    if (prompt) {
+      document.getElementById('aiPromt').value = prompt
+      document.querySelectorAll('#aiWizard button')[0].removeAttribute('disabled')
+    };
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Models</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="../static/styles/index.css">
+</head>
+
+<body onload="checkModel()"><br>
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2">
+            <div id="loader" style="align-items: center;" ;>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <div class="spinner-grow text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5"></div>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <h1 style="text-align: center; color: #04AA6D;">Model Training
+                </h1>
+            </div>
+            <div class="col-lg-3">
+                <a href="/">
+                    <button class="btn btn-outline-success">Change dataset</button>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8" id="myForm">
+                <div id="formcont" class="form-container form-popup">
+                    <div id="head" class="container heading">
+                        <h4>Select your features and target</h4>
+                        <hr>
+                    </div>
+                    <form id="submForm" method="post" action="/analysis">
+                        <input type="submit" id="submitBtn" hidden>
+                        <div class="row" style="padding: 15px;">
+                            <textarea id="modelname" name="modelname" hidden>{{modl}}</textarea>
+                            <div class="row" id="chooseK"></div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div id="dy">
+                                        <h6 style="color: #04AA6D;">SELECT Y:</h6>
+                                    </div>
+                                    <div id="insertycols">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div id="dx">
+                                        <h6 style="color: #04AA6D;">SELECT FEATURES TO DROP:</h6>
+                                    </div>
+                                    <div id="insertxcols"></div>
+                                </div>
+                                {%if gd != None%}
+                                <div class="col-lg-4">
+                                    <div>
+                                        <h6 style="color: #04AA6D;">SELECT GRADIENT DESCENT</h6>
+                                    </div>
+
+                                    <select id="selectGD" name="selectGD" onchange="myFunction(event)"
+                                        class="form-select form-select-sm marg" required>
+                                        {%for el in gd%}
+                                        <option value="{{el}}">{{el}}</option>
+                                        {%endfor%}
+                                    </select>
+                                    <div class="input-group input-group-sm marg">
+                                        <span class="input-group-text">Learing rate</span>
+                                        <input type="number" step="any" value="0.01" id="LR" name="LR"
+                                            class="form-control" required>
+                                    </div>
+
+                                    <div class="input-group input-group-sm marg">
+                                        <span class="input-group-text">Epoch</span>
+                                        <input type="number" id="epoch" value="100" name="epoch" min="0"
+                                            class="form-control" required>
+                                    </div>
+
+                                    <div class="input-group input-group-sm marg">
+                                        <span class="input-group-text">Batch Size</span>
+                                        <input type="number" id="batchsize" name="batchsize" min="0"
+                                            class="form-control" required disabled>
+                                    </div>
+                    </form>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3">
+                    <button type="button" class="btn btn-sm" style="margin-top: 80px;" onclick="check_cols()">Submit
+                    </button>
+                </div>
+
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5" style="margin-top: 76px;">
+                    <p style="color: grey;">Features are selected automatically according to target variable using
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">correlation</a>
+                    </p>
+                </div>
+
+            </div>
+            <div id="corr">
+                <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Correlation matrix</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card marg">
+                                    <div class="card-body">
+                                        {{corr_html | safe}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+        <script>
+            document.onreadystatechange = function () {
+                if (document.readyState !== "complete") {
+                    document.querySelector("body").style.visibility = "hidden";
+                    document.querySelector("#loader").style.visibility = "visible";
+                } else {
+                    document.querySelector("#loader").style.display = "none";
+                    document.querySelector("body").style.visibility = "visible";
+                }
+            };
+            function checkModel() {
+                var model = document.getElementById("modelname").value;
+                if (model === 'KNN S' || model == 'KNN') {
+                    html = `<div class="form-group row">
+                            <div class="col-lg-2" style="padding: 15px;"><label>Choose k :</label></div>
+                            <div class="col-lg-3"><input type="number" min="0" class="form-control form-control-sm"
+                                    id="k" name="k" required>
+                            </div>
+                            <div class="col-lg-7"><small class="form-text text-muted">Note: Choose odd value for k to
+                                    get good result.</small></div>`
+                    document.getElementById("chooseK").innerHTML = html
+                }
+                create_ycolumns_from_json()
+                create_xcolumns_from_json()
+            }
+
+            function create_ycolumns_from_json() {
+                firstObj = JSON.parse('{{session["csvfile"] | safe}}')[0]
+                cols = Object.keys(firstObj)
+
+                console.log(firstObj)
+                let i;
+                for (i = (cols.length - 1); i >= 0; i--) {
+                    console.log(cols[i])
+                    var html = `<div class="form-check">
+                            <input class="form-check-input" type="radio" id="y" name="y" required="required"
+                            onchange="check_dx(value)" value="${cols[i]}">
+                            <label class="form-check-label">
+                            ${cols[i]}
+                            </label></div>`
+                    const element = document.getElementById("insertycols")
+                    console.log(element)
+                    const anotherDiv = document.createElement("div")
+                    anotherDiv.innerHTML = html
+                    //var anotherDiv = new DOMParser().parseFromString(html, "text/xml");
+                    element.after(anotherDiv);
+                }
+            }
+
+            function create_xcolumns_from_json() {
+                firstObj = JSON.parse('{{session["csvfile"] | safe}}')[0];
+                cols = Object.keys(firstObj)
+                console.log(cols)
+                let i;
+                for (i = (cols.length - 1); i >= 0; i--) {
+                    //console.log(cols[i])
+                    var html = `<div class="form-check">
+                            <input class="check_boxS form-check-input" type="checkbox" id="x${cols[i]}" name="x${cols[i]}" 
+                            value="${cols[i]}">
+                            <label class="form-check-label">
+                            ${cols[i]}
+                            </label>
+                            </div>`
+                    const element = document.getElementById("insertxcols")
+                    const anotherDiv = document.createElement("div")
+                    anotherDiv.innerHTML = html;
+                    //var anotherDiv = new DOMParser().parseFromString(html, "text/xml");
+                    element.after(anotherDiv);
+                }
+            }
+
+
+            function myFunction(event) {
+                var val = document.getElementById("selectGD").value;
+                var Batchdiv = document.querySelector("#batchsize");
+                if (val == 'Mini Batch') {
+                    document.getElementById("batchsize").disabled = false;
+                }
+                else {
+                    var bs = document.getElementById("batchsize");
+                    bs.disabled = true;
+                    bs.value = ""
+                }
+            }
+
+            var lastDisabled = undefined;
+            function check_dx(value) {
+                var cb = document.getElementById("x" + value);
+                console.log(cb)
+                cb.checked = false;
+                cb.disabled = true;
+                if (lastDisabled) {
+                    lastDisabled.disabled = false
+                }
+                lastDisabled = cb
+            }
+
+            function check_cols() {
+                file = JSON.parse('{{session["csvfile"] | safe}}');
+                var y = undefined
+                ys = document.getElementsByName('y')
+                for (i = 0; i < ys.length; i++) {
+                    if (ys[i].checked) {
+                        y = ys[i].value
+                    }
+                }
+                model = document.getElementById("modelname").value
+                console.log(model, y)
+                var i;
+                if (model != "Multiple Linear Regression") {
+                    if (model != "Simple Linear Regression S") {
+                        for (i = 0; i < file.length; i++) {
+                            val = file[i][y]
+                            var v = parseFloat(val);
+                            console.log(v,parseFloat(2.0))
+                            if ((v==0 || v==1 || v== 2 || v==3 || v==4||v==5||v==6||v==7||v==8||v==9||v==10)==false) {
+                                alert("Enter Valid column for selected model")
+                                return;
+                            }
+                        }
+                    }
+                }
+
+                if (event) event.preventDefault();
+                var attributes = $('input[class="check_boxS form-check-input"]:checked').map(function () {
+                    return $(this).val();
+                }).get()
+                firstObj = JSON.parse('{{session["csvfile"] | safe}}')[0];
+                cols = Object.keys(firstObj)
+                console.log( attributes.length, cols.length)
+                if ((attributes.length) >= (cols.length - 1)) {
+                    alert("Minimum 1 value for x is required!!")
+                    return
+                }
+                document.getElementById("submForm").submit()
+
+            }
+        </script>
+</body>
+
+</html>
